@@ -13,7 +13,7 @@ Se escribe:
 */
 
 const CONFIGURACION = {
-    whatsapp: "573001234567",
+    whatsapp: "4915561264387",
     mensaje: "Hola, me gustaría comprar FRESITAS TRULULU."
 };
 
