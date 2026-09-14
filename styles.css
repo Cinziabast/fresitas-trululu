@@ -1171,3 +1171,250 @@ button {
         transform: none;
     }
 }
+
+/* VENTANA DE DESCUENTO */
+
+.popup-fondo {
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    background: rgba(53, 19, 46, 0.72);
+    backdrop-filter: blur(5px);
+
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.4s ease, visibility 0.4s ease;
+}
+
+.popup-fondo.mostrar {
+    opacity: 1;
+    visibility: visible;
+}
+
+.popup-contenido {
+    position: relative;
+    width: min(850px, 95%);
+    display: grid;
+    grid-template-columns: 0.85fr 1.15fr;
+    overflow: hidden;
+    background: white;
+    border: 4px solid #f70083;
+    border-radius: 30px;
+    box-shadow: 0 30px 80px rgba(53, 19, 46, 0.35);
+
+    transform: translateY(40px) scale(0.9);
+    transition: transform 0.4s ease;
+}
+
+.popup-fondo.mostrar .popup-contenido {
+    transform: translateY(0) scale(1);
+}
+
+.popup-cerrar {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    z-index: 3;
+
+    width: 40px;
+    height: 40px;
+
+    background: white;
+    color: #f70083;
+    border: none;
+    border-radius: 50%;
+    box-shadow: 0 5px 18px rgba(53, 19, 46, 0.18);
+
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.popup-cerrar:hover {
+    background: #f70083;
+    color: white;
+    transform: rotate(90deg);
+}
+
+.popup-imagen {
+    position: relative;
+    min-height: 470px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 35px;
+    overflow: hidden;
+
+    background:
+        radial-gradient(circle, #ffadd1, #f70083);
+}
+
+.popup-imagen::before {
+    content: "";
+    position: absolute;
+    width: 340px;
+    height: 340px;
+    border-radius: 50%;
+
+    background: repeating-conic-gradient(
+        rgba(255, 255, 255, 0.2) 0deg 12deg,
+        transparent 12deg 24deg
+    );
+
+    animation: girar 25s linear infinite;
+}
+
+.popup-imagen img {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    max-height: 390px;
+    object-fit: contain;
+
+    filter: drop-shadow(0 25px 20px rgba(84, 0, 49, 0.3));
+    animation: flotar 4s ease-in-out infinite;
+}
+
+.popup-texto {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 55px 45px;
+    text-align: center;
+}
+
+.popup-etiqueta {
+    align-self: center;
+    padding: 7px 14px;
+
+    background: #ffe0ee;
+    color: #f70083;
+    border-radius: 30px;
+
+    font-size: 0.72rem;
+    font-weight: 900;
+    letter-spacing: 0.13em;
+}
+
+.popup-texto h2 {
+    margin: 18px 0 12px;
+    color: #35132e;
+
+    font-family: "Baloo 2", cursive;
+    font-size: clamp(2rem, 4vw, 3.2rem);
+    line-height: 1;
+}
+
+.popup-texto > p {
+    margin: 5px 0;
+    color: #74576c;
+    line-height: 1.6;
+}
+
+.popup-texto p strong {
+    color: #f70083;
+}
+
+.texto-codigo {
+    margin-top: 18px !important;
+    font-size: 0.85rem;
+    font-weight: 800;
+}
+
+.codigo-descuento {
+    width: fit-content;
+    margin: 8px auto 22px;
+    padding: 10px 28px;
+
+    background: #fff5f9;
+    color: #f70083;
+    border: 2px dashed #f70083;
+    border-radius: 12px;
+
+    font-family: "Baloo 2", cursive;
+    font-size: 1.8rem;
+    font-weight: 800;
+    letter-spacing: 0.12em;
+}
+
+.popup-botones {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.boton-popup {
+    padding: 14px 22px;
+
+    background: #f70083;
+    color: white;
+    border-radius: 40px;
+
+    font-weight: 900;
+    box-shadow: 0 10px 25px rgba(247, 0, 131, 0.25);
+    transition: 0.3s;
+}
+
+.boton-popup:hover {
+    background: #c9006b;
+    transform: translateY(-3px);
+}
+
+.boton-seguir {
+    padding: 11px;
+
+    background: transparent;
+    color: #671c60;
+    border: none;
+
+    font-weight: 800;
+    cursor: pointer;
+}
+
+.boton-seguir:hover {
+    color: #f70083;
+}
+
+
+/* POPUP EN CELULARES */
+
+@media (max-width: 700px) {
+
+    .popup-contenido {
+        grid-template-columns: 1fr;
+        max-height: 92vh;
+        overflow-y: auto;
+    }
+
+    .popup-imagen {
+        min-height: 210px;
+        padding: 20px;
+    }
+
+    .popup-imagen::before {
+        width: 250px;
+        height: 250px;
+    }
+
+    .popup-imagen img {
+        max-height: 200px;
+    }
+
+    .popup-texto {
+        padding: 28px 22px 30px;
+    }
+
+    .popup-texto h2 {
+        font-size: 2rem;
+    }
+
+    .codigo-descuento {
+        margin-bottom: 15px;
+        font-size: 1.5rem;
+    }
+}
