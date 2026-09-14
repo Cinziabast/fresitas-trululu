@@ -138,3 +138,76 @@ elementos.forEach(function (elemento) {
     observador.observe(elemento);
 
 });
+
+/* VENTANA DE DESCUENTO */
+
+const popupDescuento =
+    document.getElementById("popupDescuento");
+
+const cerrarPopup =
+    document.getElementById("cerrarPopup");
+
+const seguirViendo =
+    document.getElementById("seguirViendo");
+
+const comprarDescuento =
+    document.getElementById("comprarDescuento");
+
+
+/* MENSAJE AUTOMÁTICO DE LA PROMOCIÓN */
+
+const mensajeDescuento =
+    "Hola, me gustaría comprar 3 o más productos " +
+    "FRESITAS TRULULU y utilizar el código ASHLEY5 " +
+    "para obtener el 5% de descuento.";
+
+comprarDescuento.href =
+    crearEnlaceWhatsApp(mensajeDescuento);
+
+
+/* MOSTRAR EL POPUP DESPUÉS DE 2 SEGUNDOS */
+
+window.addEventListener("load", function () {
+
+    setTimeout(function () {
+
+        popupDescuento.classList.add("mostrar");
+
+    }, 2000);
+
+});
+
+
+/* FUNCIÓN PARA CERRAR EL POPUP */
+
+function ocultarPopup() {
+
+    popupDescuento.classList.remove("mostrar");
+
+}
+
+cerrarPopup.addEventListener("click", ocultarPopup);
+
+seguirViendo.addEventListener("click", ocultarPopup);
+
+
+/* CERRAR AL PULSAR FUERA DEL RECUADRO */
+
+popupDescuento.addEventListener("click", function (evento) {
+
+    if (evento.target === popupDescuento) {
+        ocultarPopup();
+    }
+
+});
+
+
+/* CERRAR CON LA TECLA ESCAPE */
+
+document.addEventListener("keydown", function (evento) {
+
+    if (evento.key === "Escape") {
+        ocultarPopup();
+    }
+
+});
