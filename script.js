@@ -139,7 +139,7 @@ elementos.forEach(function (elemento) {
 
 });
 
-/* VENTANA DE DESCUENTO */
+/* VENTANA DE PROMOCIONES */
 
 const popupDescuento =
     document.getElementById("popupDescuento");
@@ -150,19 +150,52 @@ const cerrarPopup =
 const seguirViendo =
     document.getElementById("seguirViendo");
 
-const comprarDescuento =
-    document.getElementById("comprarDescuento");
+const comprarPromo1 =
+    document.getElementById("comprarPromo1");
+
+const comprarPromo2 =
+    document.getElementById("comprarPromo2");
 
 
-/* MENSAJE AUTOMÁTICO DE LA PROMOCIÓN */
+/* MENSAJE DE LA OPCIÓN 1 */
 
-const mensajeDescuento =
-    "Hola, me gustaría comprar 3 o más productos " +
-    "FRESITAS TRULULU y utilizar el código ASHLEY5 " +
-    "para obtener el 5% de descuento.";
+const mensajePromo1 =
+    "Hola, quiero aprovechar la Opción 1: " +
+    "comprar una bolsa de Fresitas Trululu de 90 g o 120 g " +
+    "y recibir gratis una bolsa de 35 g. " +
+    "¿Está disponible?";
 
-comprarDescuento.href =
-    crearEnlaceWhatsApp(mensajeDescuento);
+
+/* MENSAJE DE LA OPCIÓN 2 */
+
+const mensajePromo2 =
+    "Hola, quiero aprovechar la Opción 2: " +
+    "el Combo Trululu de 35 g + 90 g + 120 g " +
+    "por $21.000. ¿Está disponible?";
+
+
+/* ABRIR WHATSAPP SEGÚN LA PROMOCIÓN */
+
+comprarPromo1.addEventListener("click", function () {
+
+    window.open(
+        crearEnlaceWhatsApp(mensajePromo1),
+        "_blank",
+        "noopener,noreferrer"
+    );
+
+});
+
+
+comprarPromo2.addEventListener("click", function () {
+
+    window.open(
+        crearEnlaceWhatsApp(mensajePromo2),
+        "_blank",
+        "noopener,noreferrer"
+    );
+
+});
 
 
 /* MOSTRAR EL POPUP DESPUÉS DE 2 SEGUNDOS */
@@ -178,7 +211,7 @@ window.addEventListener("load", function () {
 });
 
 
-/* FUNCIÓN PARA CERRAR EL POPUP */
+/* CERRAR EL POPUP */
 
 function ocultarPopup() {
 
@@ -186,28 +219,46 @@ function ocultarPopup() {
 
 }
 
-cerrarPopup.addEventListener("click", ocultarPopup);
 
-seguirViendo.addEventListener("click", ocultarPopup);
+cerrarPopup.addEventListener(
+    "click",
+    ocultarPopup
+);
+
+
+seguirViendo.addEventListener(
+    "click",
+    ocultarPopup
+);
 
 
 /* CERRAR AL PULSAR FUERA DEL RECUADRO */
 
-popupDescuento.addEventListener("click", function (evento) {
+popupDescuento.addEventListener(
+    "click",
+    function (evento) {
 
-    if (evento.target === popupDescuento) {
-        ocultarPopup();
+        if (evento.target === popupDescuento) {
+
+            ocultarPopup();
+
+        }
+
     }
-
-});
+);
 
 
 /* CERRAR CON LA TECLA ESCAPE */
 
-document.addEventListener("keydown", function (evento) {
+document.addEventListener(
+    "keydown",
+    function (evento) {
 
-    if (evento.key === "Escape") {
-        ocultarPopup();
+        if (evento.key === "Escape") {
+
+            ocultarPopup();
+
+        }
+
     }
-
-});
+);
