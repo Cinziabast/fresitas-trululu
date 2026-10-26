@@ -717,65 +717,150 @@
 
     </footer>
 
-    <!-- VENTANA DE DESCUENTO -->
+    <!-- VENTANA DE PROMOCIONES -->
 
 <div class="popup-fondo" id="popupDescuento">
 
     <div class="popup-contenido">
 
-        <button class="popup-cerrar"
+        <button
+            class="popup-cerrar"
             id="cerrarPopup"
-            aria-label="Cerrar promoción">
+            aria-label="Cerrar promociones">
             ✕
         </button>
 
-        <div class="popup-imagen">
-            <img src="fresitas2.webp"
-                alt="Gomitas Fresitas Trululu">
-        </div>
+        <div class="popup-encabezado">
 
-        <div class="popup-texto">
+            <img
+                src="fresitas1.png"
+                alt="Fresitas Trululu"
+                class="popup-producto">
 
-            <span class="popup-etiqueta">
-                PROMOCIÓN ESPECIAL
-            </span>
+            <div class="popup-titulo">
 
-            <h2>
-                ¡Tenemos una dulce sorpresa para ti! 🍓
-            </h2>
+                <span class="popup-etiqueta">
+                    PROMOCIONES ESPECIALES
+                </span>
 
-            <p>
-                Compra <strong>3 o más productos Trululu</strong>
-                en un mismo pedido y recibe un
-                <strong>5% de descuento.</strong>
-            </p>
+                <h2>
+                    Elige la promoción que más te guste 🍓
+                </h2>
 
-            <p class="texto-codigo">
-                Utiliza el código:
-            </p>
+                <p>
+                    ¡Disfruta más Fresitas Trululu por menos!
+                </p>
 
-            <div class="codigo-descuento">
-                ASHLEY5
             </div>
 
-            <div class="popup-botones">
+        </div>
 
-                <a href="#"
-                    class="boton-popup"
-                    id="comprarDescuento"
-                    target="_blank"
-                    rel="noopener noreferrer">
 
-                    Comprar con descuento
-                </a>
+        <div class="popup-opciones">
 
-                <button class="boton-seguir" id="seguirViendo">
-                    Seguir viendo
+            <!-- OPCIÓN 1 -->
+
+            <article class="popup-promocion promocion-regalo">
+
+                <span class="numero-promocion">
+                    OPCIÓN 1
+                </span>
+
+                <h3>
+                    ¡Fresitas de regalo!
+                </h3>
+
+                <p>
+                    Compra una bolsa de
+                    <strong>90 g o 120 g</strong>
+                    y recibe
+                    <strong class="gratis">GRATIS</strong>
+                    una bolsa de 35 g.
+                </p>
+
+                <div class="promo-imagenes">
+
+                    <img
+                        src="fresitas1.png"
+                        alt="Fresitas Trululu de 90 o 120 gramos">
+
+                    <span>+</span>
+
+                    <div class="producto-gratis">
+
+                        <img
+                            src="fresitas2.webp"
+                            alt="Fresitas Trululu de 35 gramos">
+
+                        <small>GRATIS</small>
+
+                    </div>
+
+                </div>
+
+                <button
+                    class="boton-elegir-promocion"
+                    id="comprarPromo1">
+
+                    Elegir opción 1
                 </button>
 
-            </div>
+            </article>
+
+
+            <!-- OPCIÓN 2 -->
+
+            <article class="popup-promocion promocion-combo">
+
+                <span class="numero-promocion">
+                    OPCIÓN 2
+                </span>
+
+                <h3>
+                    Combo Trululu
+                </h3>
+
+                <p class="contenido-combo">
+                    35 g + 90 g + 120 g
+                </p>
+
+                <p class="precio-anterior">
+                    Precio normal:
+                    <del>$24.500</del>
+                </p>
+
+                <div class="precio-promocional">
+                    $21.000
+                </div>
+
+                <p class="ahorro">
+                    Ahorras $3.500
+                </p>
+
+                <button
+                    class="boton-elegir-promocion"
+                    id="comprarPromo2">
+
+                    Elegir opción 2
+                </button>
+
+            </article>
 
         </div>
+
+
+        <p class="condiciones-promociones">
+            Promociones no acumulables, sujetas a disponibilidad
+            y válidas hasta agotar existencias.
+        </p>
+
+
+        <button
+            class="boton-seguir"
+            id="seguirViendo">
+
+            Seguir viendo la página
+        </button>
 
     </div>
 
